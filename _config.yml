@@ -1,0 +1,6 @@
+permalink: /:title
+
+title: liubo.im
+url: http://liubo.im
+feed: /atom.xml
+author_info: <a href="http://liubo.im">liubo.im = im.LIUBO</a>
