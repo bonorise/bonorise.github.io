@@ -1,4 +1,4 @@
-permalink: /:title
+permalink: /:categories/:title
 paginate: 10
 title: liubo.im 
 url: http://liubo.im
