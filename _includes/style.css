@@ -423,36 +423,36 @@ a.external:hover {
     padding: 0 7.5% 30px;
   }
 }
-.about-wrapper .aboutme {
+.about-wrapper .footer {
   zoom: 1;
 }
-.about-wrapper .aboutme:before,
-.about-wrapper .aboutme:after {
+.about-wrapper .footer:before,
+.about-wrapper .footer:after {
   content: "";
   display: table;
 }
-.about-wrapper .aboutme:after {
+.about-wrapper .footer:after {
   clear: both;
 }
-.about-wrapper .aboutme h2 {
+.about-wrapper .footer h2 {
   margin-bottom: 20px;
 }
-.about-wrapper .aboutme h2 a {
+.about-wrapper .footer h2 a {
   font-size: 18px;
 }
-.about-wrapper .aboutme li {
+.about-wrapper .footer li {
   line-height: 1.4;
   margin-bottom: 10px;
   float: left;
   width: 50%;
 }
 @media screen and (max-width: 767px) {
-  .about-wrapper .aboutme li {
+  .about-wrapper .footer li {
     float: none;
     width: 80%;
   }
 }
-.about-wrapper .aboutme a {
+.about-wrapper .footer a {
   color: #fff;
   font-size: 14px;
 }

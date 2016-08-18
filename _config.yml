@@ -1,5 +1,5 @@
 permalink: /:title
-
+paginate: 10
 title: liubo.im 
 url: http://liubo.im
 feed: /atom.xml
