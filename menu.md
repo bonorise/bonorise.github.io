@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: category-menu
 title: 所有分类博文
 ---
 

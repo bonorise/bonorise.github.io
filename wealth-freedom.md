@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: category-menu
 title: 《通往财富自由之路》笔记
 ---
 
