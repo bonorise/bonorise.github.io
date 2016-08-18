@@ -4,3 +4,4 @@ title: liubo.im
 url: http://liubo.im
 author_info: <a href="http://liubo.im">liubo.im = im.LIUBO</a>
 
+gems: [jekyll-paginate]
