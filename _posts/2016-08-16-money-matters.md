@@ -2,7 +2,7 @@
 layout: post
 title: 002 奥运会应该是干什么的？
 description: 不管你的初衷是什么，这个东西一旦发展壮大起来，牵扯到巨大利益，这个初衷就肯定无法保全了。
-category: elite-lessons
+category: elite_lessons
 ---
 
 ## 原文摘抄
