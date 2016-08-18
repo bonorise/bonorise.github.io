@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: category-menu
 title: 《精英日课·万维钢》笔记
 ---
 

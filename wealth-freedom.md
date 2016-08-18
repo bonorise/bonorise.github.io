@@ -1,6 +1,6 @@
 ---
 layout: category-menu
-title: 《通往财富自由之路》笔记
+title: 《通往财富自由之路·李笑来》笔记
 ---
 
 <div class="index-content">
