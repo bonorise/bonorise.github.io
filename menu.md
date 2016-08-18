@@ -11,8 +11,8 @@ title: im刘波
 
 {% for category in site.categories %}
 <h2>{{ category | first }}</h2>
-<span>（{{ category | last | size }}）</span>
-<br>
+<!-- <span>（{{ category | last | size }}）</span>
+ --><br>
 <ul class="arc-list">
     {% for post in category.last %}
         <li><a href="{{ post.url }}">{{ post.title }}</a> <span>{{ post.date | date:"%d/%m/%Y"}}</span></li>
