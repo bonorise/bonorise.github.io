@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<body>
+<!-- <body>
   <div class="index-wrapper">
     <div class="aside">
       <div class="info-card">
         <h1>liubo.im 刘波</h1>
       </div>
       <div id="particles-js"></div>
-    </div>
+    </div> -->
 
     <div class="index-content">
       <ul class="artical-list">
@@ -22,4 +22,4 @@ layout: default
       </ul>
     </div>
   </div>
-</body>
+<!-- </body> -->
