@@ -9,10 +9,10 @@ title: 刘波的每日学习
       <div class="info-card">
         <h1>liubo.im 刘波</h1>
         <ul>
-            <li>前哨·王煜全</li>
-            <li>精英日课·万维钢</li>
-            <li>通往财富自由之路·李笑来</li>
-            <li>零基础想段子学JS</li>
+            <li><a href="/front">前哨·王煜全</a></li>
+            <li><a href="/elite-lessons">精英日课·万维钢</a></li>
+            <li><a href="/wealth-freedom">通往财富自由之路·李笑来</a></li>
+            <li><a href="/js">零基础看段子学JS</a></li>
         </ul>
       </div>
       <div id="particles-js"></div>
