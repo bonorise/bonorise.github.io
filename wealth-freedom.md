@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 《精英日课·万维钢》笔记
+title: 《通往财富自由之路》笔记
 ---
 
 <div class="index-content">
       <ul class="artical-list">
-        {% for post in site.categories.elite-lessons %}
+        {% for post in site.categories.wealth-freedom %}
         <li>
           <a href="{{ post.url }}" class="title">{{ post.title }}</a>
           <div class="title-desc">{{ post.description }}</div>
