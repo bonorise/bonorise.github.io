@@ -1,6 +1,6 @@
 ---
 layout: default
-title: liubo.im 刘波的每日学习
+title: 刘波的每日学习
 ---
 
 <body>
