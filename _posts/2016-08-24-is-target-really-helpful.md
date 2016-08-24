@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 014 目标很丰满，不确定性很骨感
-description: 
+description: 有目标，固然幸福；能容纳乃至拥抱不确定性，才是大智慧。
 category: elite-lessons
 ---
 

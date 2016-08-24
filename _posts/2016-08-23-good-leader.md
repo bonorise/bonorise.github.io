@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 012 到底是人厉害，还是运气好
-description: 
+description: 成功是涌现，整体的功劳，学不来；失败是个体因素所导致，可以避免的。
 category: elite-lessons
 ---
 
