@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 020 企业家思维VS雇员思维
+title: 021 企业家思维VS雇员思维
 description: 思维惯性是人浑浑噩噩最大的障碍。因为你没有办法意识到你意识不到的事情。
 category: elite-lessons
 ---

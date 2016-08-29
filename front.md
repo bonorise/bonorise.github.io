@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: category-menu
 title: 《科技前哨·王煜全》笔记
 ---
 
