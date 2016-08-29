@@ -2,7 +2,7 @@
 layout: post
 title: 017 别对我说谎！如何漂亮地解决主观感觉的争议
 description: 靠脑科学的试验。
-category: front
+category: elite-lessons
 ---
 
 ## 原文缩读
