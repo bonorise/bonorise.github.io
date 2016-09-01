@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 函数
+title: [零基础看段子学Javascript] - 函数
 description: 函数，是一种子程序，用function的另一个含义“功能”更好理解。
 category: js
 ---
