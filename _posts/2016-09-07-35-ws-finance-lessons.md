@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 极简金融课（下）：终生投资是自己的事，别交给他人
-description: 
+description: 跨越人生的指数化组合的长期投资，不需要复杂的金融知识，只要有常识性智慧就够了
 category: university
 ---
 
