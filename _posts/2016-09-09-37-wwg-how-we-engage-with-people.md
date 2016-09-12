@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 0909 快速跟人建立亲密关系
-description: 
+description: 信任，就是彼此知道彼此的弱点。
 category: elite-lessons
 ---
 

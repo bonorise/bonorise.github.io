@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 0911 碎片化信息真的让我妈变得浅薄吗？
-description: 
+title: 0911 碎片化信息真的让我们变得浅薄吗？
+description: 学术上要达到一定深度，广度是不可或缺的。
 category: front
 ---
 

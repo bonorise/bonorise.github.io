@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 0912 主场优势，关于赢的科学
-description: 
+description: 主场优势就是进化心理学的领土意识！
 category: elite-lessons
 ---
 
