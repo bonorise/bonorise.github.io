@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 0906 中年人的大脑
-description: 
+description: 衰老的永远先是人的心，再是人的身体，最后才是大脑。
 category: elite-lessons
 ---
 
