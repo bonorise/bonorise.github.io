@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 0914 
-description: 
+title: 0914 做科技的企业家是第一生产力
+description: 掌握前沿科技的企业家完成了从高校科研到产品转化的接力，推动了社会的进步。这个阶层的大小能够决定一个社会的先进程度。
 category: front
 ---
 
