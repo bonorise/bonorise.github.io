@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 0920 诺贝尔大师的恐惧
-description: 
+description: 恐惧于人们的恐惧
 category: university
 ---
 
