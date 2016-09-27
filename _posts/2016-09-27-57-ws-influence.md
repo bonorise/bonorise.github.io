@@ -2,8 +2,7 @@
 layout: post
 title: 0927 1小时影响力
 description: 从心理上影响别人
-
-category: wealth-freedom
+category: university
 ---
 
 ## 原文观点
