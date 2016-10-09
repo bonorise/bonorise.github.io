@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 1009 如何自我引导注意力
-description: 
+description: 1、不同的事搭配做 2、一次只做一件事
 category: front
 ---
 
