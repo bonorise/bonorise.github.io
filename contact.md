@@ -2,6 +2,11 @@
 layout: post
 title: 跟刘波聊聊
 ---
+<head>
+     <meta name="google-adsense-account" content="ca-pub-1467729400140451">
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1467729400140451"
+          crossorigin="anonymous"></script>
+</head>
 
 算不上一个有趣的人
 但努力做一个认真的人

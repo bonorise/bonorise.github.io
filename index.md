@@ -2,7 +2,11 @@
 layout: default
 title: 刘波的每日学习
 ---
-
+<head>
+	<meta name="google-adsense-account" content="ca-pub-1467729400140451">
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1467729400140451"
+		crossorigin="anonymous"></script>
+</head>
 <body>
   <div class="index-wrapper">
 	<div class="aside">

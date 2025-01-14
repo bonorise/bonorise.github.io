@@ -1,7 +1,12 @@
 ---
 layout: category-menu
-title: 吴军-谷歌方法论
+title: 《吴军-谷歌方法论》笔记
 ---
+<head>
+  <meta name="google-adsense-account" content="ca-pub-1467729400140451">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1467729400140451"
+      crossorigin="anonymous"></script>
+</head>
 
 <div class="index-content">
       <ul class="artical-list">
