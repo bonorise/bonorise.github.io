@@ -1,0 +1,61 @@
+---
+import { SEO } from "astro-seo";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  pubDate?: Date;
+}
+
+const { title, description, image, article = false, pubDate } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={title}
+      titleTemplate="%s | liubo.im"
+      description={description}
+      canonical={canonicalURL}
+      openGraph={{
+        basic: {
+          title: title,
+          type: article ? "article" : "website",
+          image: image || "https://liubo.im/og-image.png",
+          url: canonicalURL.toString()
+        },
+        optional: {
+          siteName: "liubo.im",
+          description: description,
+          locale: "zh_CN"
+        },
+        image: {
+          alt: title,
+          width: 1200,
+          height: 630
+        },
+        ...(article && pubDate && {
+          article: {
+            publishedTime: pubDate.toISOString()
+          }
+        })
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title: title,
+        description: description,
+        image: image || "https://liubo.im/og-image.png"
+      }}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

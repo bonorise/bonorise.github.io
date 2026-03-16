@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  // 收集所有分类
+  const categories = new Set<string>();
+  for (const post of posts) {
+    if (post.data.category) {
+      categories.add(post.data.category);
+    }
+  }
+
+  // 生成每个分类的路径
+  return Array.from(categories).map(category => ({
+    params: { category },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.params;
+
+// 获取所有文章并过滤
+const allPosts = await getCollection('blog');
+const categoryPosts = allPosts.filter(post => post.data.category === category);
+
+// 按日期排序
+categoryPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 分类名称映射
+const categoryNames = {
+  'front': '《前哨·王煜全》笔记',
+  'methodology': '《谷歌方法论·吴军》笔记',
+  'elite-lessons': '《精英日课·万维钢》笔记',
+  'wealth-freedom': '《通往财富自由之路·李笑来》笔记',
+  'daydayup': '《日知录·吴伯凡》笔记',
+  'js': '零基础看段子学 JS',
+  'blog': '博客随笔',
+};
+
+const categoryName = (category && categoryNames[category]) || category || '分类';
+---
+
+<BaseLayout
+  title={categoryName}
+  description={`${categoryName}文章列表`}
+>
+  <div class="category-page">
+    <header class="category-header">
+      <h1>{categoryName}</h1>
+      <a href="/" class="back-link">← 返回首页</a>
+    </header>
+
+    <ul class="article-list">
+      {categoryPosts.map(post => (
+        <li>
+          <a href={`/posts/${post.id}/`} class="title">{post.data.title}</a>
+          {post.data.description && (
+            <div class="title-desc">{post.data.description}</div>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <style>
+    .category-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .category-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .category-header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .back-link {
+      color: #4a75b5;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .article-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .article-list li {
+      margin-bottom: 2.5rem;
+    }
+
+    .article-list .title {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #eee;
+      text-decoration: none;
+    }
+
+    .article-list .title:hover {
+      color: #e50053;
+    }
+
+    .article-list .title-desc {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</BaseLayout>

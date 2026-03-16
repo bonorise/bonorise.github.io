@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+// 按日期排序
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="刘波的学习笔记"
+  description="养成每天写作的好习惯，把自己学习的思考的内容写下来"
+>
+  <div class="home">
+    <aside class="sidebar">
+      <div class="info-card">
+        <h1>liubo.im 刘波</h1>
+        <nav>
+          <ul>
+            <li><a href="/categories/front/">《前哨·王煜全》笔记</a></li>
+            <li><a href="/categories/methodology/">《谷歌方法论·吴军》笔记</a></li>
+            <li><a href="/categories/elite-lessons/">《精英日课·万维钢》笔记</a></li>
+            <li><a href="/categories/wealth-freedom/">《通往财富自由之路·李笑来》笔记</a></li>
+            <li><a href="/categories/daydayup/">《日知录·吴伯凡》笔记</a></li>
+            <li><a href="/categories/js/">零基础看段子学 JS</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <ul class="article-list">
+        {posts.map(post => (
+          <li>
+            <a href={`/posts/${post.id}/`} class="title">{post.data.title}</a>
+            {post.data.description && (
+              <div class="title-desc">{post.data.description}</div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </main>
+  </div>
+
+  <style>
+    .home {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30%;
+      max-width: 500px;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #5d3571, #38658c);
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-width: none;
+      }
+    }
+
+    .info-card {
+      color: white;
+      text-align: center;
+      margin-top: 70%;
+    }
+
+    @media (max-width: 768px) {
+      .info-card {
+        margin-top: 2rem;
+      }
+    }
+
+    .info-card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-card li {
+      margin: 0.75rem 0;
+    }
+
+    .info-card a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    .info-card a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .content {
+      margin-left: 30%;
+      padding: 4rem 15% 4rem 5%;
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        margin-left: 0;
+        padding: 2rem 5%;
+      }
+    }
+
+    .article-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .article-list li {
+      margin-bottom: 2.5rem;
+    }
+
+    .article-list .title {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #eee;
+      text-decoration: none;
+    }
+
+    .article-list .title:hover {
+      color: #e50053;
+    }
+
+    .article-list .title-desc {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</BaseLayout>
