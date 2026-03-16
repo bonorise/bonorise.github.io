@@ -1,5 +1,5 @@
 ---
-import BaseLayout from './BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 interface Props {
   title: string;
@@ -10,6 +10,17 @@ interface Props {
 }
 
 const { title, description, pubDate, category, image } = Astro.props;
+
+// 分类名称映射
+const categoryNames = {
+  'front': '前哨·王煜全',
+  'methodology': '谷歌方法论·吴军',
+  'elite-lessons': '精英日课·万维钢',
+  'wealth-freedom': '通往财富自由之路·李笑来',
+  'daydayup': '日知录·吴伯凡',
+  'js': '零基础看段子学 JS',
+  'blog': '博客随笔',
+};
 ---
 
 <BaseLayout
@@ -20,7 +31,23 @@ const { title, description, pubDate, category, image } = Astro.props;
   pubDate={pubDate}
 >
   <article class="post">
-    <header class="post-header">
+    <!-- 返回链接和分类标签 -->
+    <div class="post-nav fade-in">
+      <a href="/" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        返回首页
+      </a>
+      {category && (
+        <a href={`/categories/${category}/`} class="category-link">
+          {categoryNames[category] || category}
+        </a>
+      )}
+    </div>
+
+    <!-- 文章头部 -->
+    <header class="post-header fade-in delay-1">
       <h1 class="post-title">{title}</h1>
       <div class="post-meta">
         <time datetime={pubDate.toISOString()}>
@@ -30,122 +57,320 @@ const { title, description, pubDate, category, image } = Astro.props;
             day: 'numeric'
           })}
         </time>
-        {category && <span class="category">· {category}</span>}
+        {category && <span class="meta-divider">·</span>}
+        {category && <span class="category">{categoryNames[category] || category}</span>}
       </div>
     </header>
-    <div class="post-content">
+
+    <!-- 文章内容 -->
+    <div class="post-content fade-in delay-2">
       <slot />
     </div>
+
+    <!-- 文章底部 -->
+    <footer class="post-footer fade-in delay-3">
+      <div class="footer-line"></div>
+      <p class="footer-note">如果这篇文章对你有启发，欢迎 <a href="/">返回首页</a> 浏览更多内容</p>
+    </footer>
   </article>
 
   <style>
     .post {
       max-width: 720px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: var(--space-2xl) var(--space-lg);
     }
 
+    /* ===== Post Navigation ===== */
+    .post-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-md);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-base);
+    }
+
+    .back-link:hover {
+      color: var(--color-primary);
+      background: var(--color-bg);
+    }
+
+    .back-link svg {
+      width: 18px;
+      height: 18px;
+      transition: transform var(--transition-fast);
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-3px);
+    }
+
+    .category-link {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      background: rgba(45, 90, 74, 0.08);
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      transition: all var(--transition-base);
+    }
+
+    .category-link:hover {
+      background: var(--color-primary);
+      color: white;
+    }
+
+    /* ===== Post Header ===== */
     .post-header {
-      margin-bottom: 3rem;
+      margin-bottom: var(--space-2xl);
       text-align: center;
     }
 
     .post-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
-      line-height: 1.3;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.25;
+      margin-bottom: var(--space-md);
+      letter-spacing: -0.02em;
     }
 
     .post-meta {
-      color: #666;
-      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+    }
+
+    .post-meta time {
+      font-weight: 500;
+    }
+
+    .meta-divider {
+      color: var(--color-border);
     }
 
     .post-meta .category {
-      color: #4a75b5;
+      color: var(--color-primary);
+      font-weight: 500;
     }
 
+    /* ===== Post Content Typography ===== */
     .post-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #333;
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: var(--color-text);
     }
 
     .post-content :global(p) {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
 
     .post-content :global(h2) {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 2.5rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #eee;
+      font-size: 1.625rem;
+      font-weight: 600;
+      margin: 3rem 0 1.25rem;
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--color-border-light);
+      color: var(--color-text);
     }
 
     .post-content :global(h3) {
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin: 2rem 0 0.75rem;
-      color: #222;
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin: 2.25rem 0 1rem;
+      color: var(--color-text);
+    }
+
+    .post-content :global(h4) {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 1.75rem 0 0.75rem;
+      color: var(--color-text-light);
     }
 
     .post-content :global(a) {
-      color: #4a75b5;
-      text-decoration: none;
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all var(--transition-fast);
     }
 
     .post-content :global(a:hover) {
-      text-decoration: underline;
-    }
-
-    .post-content :global(code) {
-      background: #f5f5f5;
-      border: 1px solid #e0e0e0;
-      padding: 0.15rem 0.4rem;
-      border-radius: 3px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-    }
-
-    .post-content :global(pre) {
-      background: #f7f7f7;
-      border: 1px solid #e0e0e0;
-      border-radius: 4px;
-      padding: 1rem;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-    }
-
-    .post-content :global(pre code) {
-      background: none;
-      border: none;
-      padding: 0;
+      color: var(--color-primary-dark);
+      text-decoration-thickness: 2px;
     }
 
     .post-content :global(ul),
     .post-content :global(ol) {
-      margin: 1rem 0 1rem 1.5rem;
+      margin: 1.5rem 0;
+      padding-left: 1.75rem;
     }
 
     .post-content :global(li) {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-content :global(li::marker) {
+      color: var(--color-primary);
     }
 
     .post-content :global(blockquote) {
-      margin: 1.5rem 0;
-      padding: 0.5rem 0 0.5rem 1rem;
-      border-left: 4px solid #4a75b5;
-      color: #666;
+      margin: 2rem 0;
+      padding: 1rem 0 1rem 1.5rem;
+      border-left: 4px solid var(--color-primary);
+      background: var(--color-bg);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+
+    .post-content :global(blockquote p:last-child) {
+      margin-bottom: 0;
     }
 
     .post-content :global(img) {
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 1.5rem auto;
+      margin: 2rem auto;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    .post-content :global(figure) {
+      margin: 2rem 0;
+    }
+
+    .post-content :global(figcaption) {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-top: var(--space-sm);
+    }
+
+    /* ===== Code Blocks ===== */
+    .post-content :global(pre) {
+      background: #1a1a1a;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .post-content :global(pre code) {
+      background: none;
+      border: none;
+      padding: 0;
+      color: inherit;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .post-content :global(code) {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 0.125rem 0.375rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875em;
+      color: var(--color-primary-dark);
+    }
+
+    /* ===== Tables ===== */
+    .post-content :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.9375rem;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .post-content :global(th) {
+      background: var(--color-bg);
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .post-content :global(tr:nth-child(even)) {
+      background: var(--color-bg-card);
+    }
+
+    .post-content :global(tr:hover) {
+      background: var(--color-border-light);
+    }
+
+    /* ===== Horizontal Rule ===== */
+    .post-content :global(hr) {
+      border: none;
+      height: 1px;
+      background: var(--color-border);
+      margin: 3rem 0;
+    }
+
+    /* ===== Post Footer ===== */
+    .post-footer {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
+    }
+
+    .footer-line {
+      height: 2px;
+      width: 60px;
+      background: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-note {
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+
+    .footer-note a {
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 768px) {
+      .post {
+        padding: var(--space-lg);
+      }
+
+      .post-title {
+        font-size: 1.75rem;
+      }
+
+      .post-content {
+        font-size: 1rem;
+      }
+
+      .post-content :global(h2) {
+        font-size: 1.375rem;
+      }
+
+      .post-content :global(h3) {
+        font-size: 1.25rem;
+      }
     }
   </style>
 </BaseLayout>
